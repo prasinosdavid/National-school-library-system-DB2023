@@ -54,7 +54,7 @@ foreach ($duplicates as $count) {
 
     // Print out the schools with the same number of loans
     if ($result->num_rows > 0) {
-        echo "School library operators with the same number of loans ($count) in the past year:<br>";
+        echo "<h1> School library operators with the same number of loans ($count) in the past year:</h1>";
         while($row = $result->fetch_assoc()) {
             $school_id= $row["school_id"];
 
