@@ -1,0 +1,20 @@
+<?php
+session_start();
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $servername = "localhost";
+	    $username_db = "root";
+        $password_db = "";
+        $dbname = "library";
+        $backup_file = 'C:/' . $dbname . date("Y-m-d-H-i-s") . '.sql';
+
+        $command = "mysql --user={$username_db} --password={$password_db} --host={$servername} {$dbname} < {$backup_file}";
+
+        system($command, $output);
+
+        if($output == 0) {
+            echo "Database restore successful.";
+        } else {
+            echo "Database restore failed.";
+        }
+    }
+?>

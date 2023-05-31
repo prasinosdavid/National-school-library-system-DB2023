@@ -61,6 +61,19 @@ if (!$conn) {
     <form action='authors_less_than.php'>
         <button>All authors who have written at least 5 books less than the author with the most books</button><br><br>
     </form>
+    <h2>All school operators with the same amount of lents, to have lented at least 20 books in the past 1 year</h2>
+    <form action='equal_operators.php'>
+        <button>All authors who have written at least 5 books less than the author with the most books</button><br><br>
+    </form>
+
+<form method="post" action="backup_database.php">
+    <input type="submit" value="Backup Database">
+</form>
+<form method="post" action="restore_database.php">
+    <input type="text" name="filename" placeholder="Enter backup filename">
+    <input type="submit" value="Restore Database">
+</form>
+
 </body>
 
 </html>
