@@ -39,9 +39,10 @@ foreach (array_count_values($counts) as $val => $c) {
         $duplicates[] = $val;
     }
 }
-
+$flag=0;
 // Fetch the schools with the duplicated counts
 foreach ($duplicates as $count) {
+    $flag =1;
     $sql = "SELECT s.school_name, s.school_id, COUNT(br.rent_id) AS number_of_loans 
     FROM school AS s
     JOIN user AS u ON s.school_id = u.school_id
@@ -69,9 +70,11 @@ foreach ($duplicates as $count) {
             echo "Operator name: ".$row2["first_name"]. " ".$row2["last_name"]." School: ".$row["school_name"].  "<br>";
         }
     }
-    else{
-        echo "no results";
-    }
+    
+}
+
+if($flag==0){
+    echo "No results";
 }
 
 $conn->close();
